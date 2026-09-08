@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<meta name="description" content="A small collection of poems that I have written">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Final Light">
+<meta property="og:description" content="A small collection of poems that I have written">
+<meta property="og:url" content="https://flowercombsy.github.io/My-Poetry-is-Bad/">
+<meta property="og:image" content="https://flowercombsy.github.io/My-Poetry-is-Bad/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Final Light">
+<meta name="twitter:description" content="A small collection of poems and the stories behind them.">
+<meta name="twitter:image" content="https://flowercombsy.github.io/My-Poetry-is-Bad/preview.png">
+<meta name="theme-color" content="#0b0b0a">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  
+<style>
+
+  :root{
+    --bg: #0b0b0a;
+    --ink: #e9e4d9;
+    --ink-dim: #97917f;
+    --hair: #2a2822;
+    --brass: #b3925c;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin:0;
+    padding:0;
+    background: var(--bg);
+    color: var(--ink);
+  }
+
+  body{
+    font-family: "EB Garamond", Georgia, serif;
+    font-size: 19px;
+    line-height: 1.6;
+  }
+
+  a{ color: inherit; }
+
+  ::selection{
+    background: var(--brass);
+    color: #0b0b0a;
+  }
+
+  header{
+    padding: 4.5rem 2rem 3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  header h1{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    margin: 0 0 0.4rem;
+    letter-spacing: 0.01em;
+  }
+
+  header p{
+    margin: 0;
+    color: var(--ink-dim);
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+
+  main{
+    display: grid;
+    grid-template-columns: minmax(240px, 34%) 1px minmax(0, 1fr);
+    max-width: 1180px;
+    margin: 0 auto;
+    min-height: 60vh;
+  }
+
+  .divider{
+    background: var(--hair);
+  }
+
+  section{
+    padding: 3.5rem 3rem;
+  }
+
+  h2{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.9rem;
+    margin: 0 0 1.8rem;
+    color: var(--ink);
+  }
+
+
+  .entry-list{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .entry{
+    border-top: 1px solid var(--hair);
+  }
+
+  .entry:last-child{
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .entry-row{
+    width: 100%;
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    padding: 1.4rem 0.2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1.2rem;
+    position: relative;
+  }
+
+  .entry-row:focus-visible{
+    outline: 1px solid var(--brass);
+    outline-offset: 4px;
+  }
+
+  .entry-mark{
+    flex: none;
+    width: 0.7rem;
+    color: var(--brass);
+    font-size: 1.1rem;
+    transform: rotate(0deg);
+    transition: transform 0.35s ease;
+    line-height: 1;
+    margin-top: 0.15rem;
+  }
+
+  .entry.open .entry-mark{
+    transform: rotate(90deg);
+  }
+
+  .entry-heading{
+    flex: 1;
+    min-width: 0;
+  }
+
+  .entry-title{
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: block;
+  }
+
+  .entry-preview{
+    color: var(--ink-dim);
+    font-size: 0.98rem;
+    display: block;
+    margin-top: 0.15rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: opacity 0.25s ease;
+  }
+
+  .entry.open .entry-preview{
+    opacity: 0;
+  }
+
+  .entry-date{
+    flex: none;
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+    font-variant-numeric: oldstyle-nums;
+  }
+
+  .entry-body-wrap{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .entry.open .entry-body-wrap{
+    grid-template-rows: 1fr;
+  }
+
+  .entry-body-inner{
+    overflow: hidden;
+  }
+
+  .entry-body{
+    margin: 0 0 2rem;
+    padding: 0 0 0 1.9rem;
+    white-space: pre-line;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: #ded8ca;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.4s ease 0.08s, transform 0.4s ease 0.08s;
+  }
+
+  .entry.open .entry-body{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #poems .entry-body{
+    padding-left: 1.9rem;
+  }
+
+  .empty-note{
+    color: var(--ink-dim);
+    font-style: italic;
+  }
+
+  footer{
+    text-align: center;
+    padding: 2.5rem 1rem 3rem;
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--hair);
+  }
+
+  @media (max-width: 760px){
+    main{
+      grid-template-columns: 1fr;
+    }
+    .divider{
+      display: none;
+    }
+    section{
+      padding: 2.5rem 1.5rem;
+      border-bottom: 1px solid var(--hair);
+    }
+    header{
+      padding: 3rem 1.5rem 2.2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .entry-body-wrap, .entry-body, .entry-mark, .entry-preview{
+      transition: none !important;
+    }
+  }
+
+
+  .playlist-tab{
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 20;
+    background: #141310;
+    border: 1px solid var(--hair);
+    border-left: none;
+    color: var(--ink);
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+    padding: 0.9rem 0.55rem;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    writing-mode: vertical-rl;
+    transition: background 0.25s ease, left 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s ease;
+  }
+
+  .playlist-tab:hover{
+    color: var(--brass);
+    background: #1a1814;
+  }
+
+  .playlist-tab.shifted{
+    left: 300px;
+  }
+
+  .playlist-panel{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px;
+    max-width: 84vw;
+    background: #0e0d0b;
+    border-right: 1px solid var(--hair);
+    z-index: 19;
+    transform: translateX(-100%);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 2.2rem 1.4rem;
+    overflow-y: auto;
+  }
+
+  .playlist-panel.open{
+    transform: translateX(0);
+  }
+
+  .playlist-panel h3{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.4rem;
+    margin: 0 0 1.2rem;
+    color: var(--ink);
+  }
+
+  .track-list{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .track-row{
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.6rem 0.3rem;
+    border-top: 1px solid var(--hair);
+  }
+
+  .track-list .track-row:last-child{
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .track-row.playing .track-name{
+    color: var(--brass);
+  }
+
+  .track-play{
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid var(--hair);
+    background: none;
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .track-play:hover{
+    border-color: var(--brass);
+    color: var(--brass);
+  }
+
+  .track-name{
+    flex: 1;
+    min-width: 0;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .volume-control{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.3rem;
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+  }
+
+  .volume-control input[type="range"]{
+    flex: 1;
+    accent-color: var(--brass);
+  }
+
+  .playlist-note{
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+
+  .playlist-note a{
+    color: var(--brass);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 760px){
+    .playlist-tab.shifted{
+      left: 84vw;
+    }
+  }
+</style>
+</head>
+<body>
+
+<button class="playlist-tab" id="playlist-tab">♪ Playlist</button>
+
+<div class="playlist-panel" id="playlist-panel">
+  <h3>Playlist</h3>
+
+  <div class="volume-control">
+    <span>🎵</span>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.8">
+  </div>
+
+  <div class="track-list" id="track-list"></div>
+
+  <p class="playlist-note">Just a simple playlist, adding requested songs if wanted.
+Credits: <a href="https://www.youtube.com/@Seycara" target="_blank" rel="noopener">@Seycara</a></p>
+</div>
+
+<header>
+  <h1>My final light</h1>
+  <p>Old ones are down there, The new ones are at top.</p>
+</header>
+
+<main>
+
+  <section id="story">
+    <h2>Story</h2>
+    <div class="entry-list" id="story-list"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="poems">
+    <h2>Poems</h2>
+    <div class="entry-list" id="poem-list"></div>
+  </section>
+
+</main>
+
+<footer>
+  Updated as new poems are written.
+</footer>
+
+<script>
+
+  const stories = [
+    {
+      title: "The Beginning of Everything.",
+      date: "2026",
+      preview: "As I run through the forest,",
+      body: `I run from the bandits that slayed my mother,
+      Nothing here is comforting, I am in pain`
+    },
+    {
+      title: "Will I be able to eat today?",
+      date: "2026",
+      preview: "I have been for days without food,",
+      body: `I have been running for days without food,
+      I feel my legs start to weaken,
+      My life, is this what it amounts to?`
+    }
+  ];
+
+  const poems = [
+    {
+      title: "My soul mate that wasn't meant to be",
+      date: "2026",
+      preview: "Our love has told me,",
+      body: `Our love has told me,
+That we were too early to be,
+My vow of unconditional love,
+Was nothing more than a delusional cloud,
+
+The feelings of joy and sorrow,
+To still feel those feelings when I look at our old photos,
+On a state that no man should be in,
+Deep sorrow from within,
+
+I saw a lily,
+It reminded me of thee,
+We could never be,
+Yet I clung unto that dream,
+
+I'm lonely,
+I wish I saw you closely,
+I look at reality,
+I wish to dream eternally. 
+`
+    },
+        {
+      title: "A bittersweet ending,",
+      date: "2026",
+      preview: "Tearful goodbyes, not my style,",
+      body: `Tearful goodbyes, not my style,
+Yet after the smiles,
+I run for miles,
+Waiting for the tears to subside,
+
+The break-up was casual,
+You thought it was mutual,
+All I could do is be silent,
+While the shine goes off your pendant,
+
+My dear, for the last time,
+A final goodbye,
+Now that we're strangers,
+Pretending that we've never been,
+
+A severed tree,
+A yggdrasil that bloomed too early,
+Our love was real,
+But fragile like pure steel.`
+    },
+        {
+      title: "Do you still think about me too?",
+      date: "2026",
+      preview: "Hangover from last night,",
+      body: `Hangover from last night,
+Appetite, satisfied,
+Nameless, yet fascinated,
+Inside of the backlight,
+Bargaining, in a stage of grief,
+Ecstatic, only for a brief,
+Thereafter, can we still be?
+Harmful, despite my pleas,
+
+Facades, all unnoticed,
+Oasis of a minimalist,
+Resting, like a herbalist,
+
+Yarns, scattered all across the bay,
+Oftentimes, I move slowly like algae,
+Uncertain, and became an allay.
+`
+    },
+        {
+      title: "Heartbroken, but in love",
+      date: "2026",
+      preview: "As I walk towards the bay,",
+      body: `As I walk towards the bay,
+A woman interrupts my way,
+She asked me, are you fine?
+I answered no, dead inside,
+
+What's wrong? she said,
+Everything, I replied,
+Talk about it, she said,
+I want to die, I replied,
+
+As I try to jump off the bay,
+She pulled my arm and yelled, stay!
+Why? I yelled in pain!
+You have so much reason to stay!
+
+Standing here I realize,
+Did I really want to die?
+Looked back, she disappeared,
+Now I see that was my consciousness trying to interfere.`
+    },
+        {
+      title: "Eternally, yours",
+      date: "2026",
+      preview: "One last time,",
+      body: `One last time,
+I wish to see you, heroine,
+For the last time,
+I want to rewind,
+
+I'm still yours,
+Forevermore,
+I don't know why,
+Every time I think about you, I cry.
+
+I had hoped, you would be my wife,
+Yet, every time I wished for praise,
+You make me feel dead inside,
+I was alive with your daylight,
+
+My regrets haunt me,
+I wish it was a different me,
+I was satisfied,
+God, I wish you just lied.`
+    },
+        {
+      title: "My last letter to you",
+      date: "2026",
+      preview: "Hi my dearest,",
+      body: `Hi my dearest,
+I hope this letter meets you after my attempt,
+When the time is right,
+My life, you were my only light,
+
+Just know that, you aren't to blame,
+For all the mistakes I have made,
+Maybe I could've written this better,
+But honestly, me? getting better?
+
+My heart is racing,
+Everything hurts,
+My dearest, $&#@*#@!
+I hope to see you,
+In another life,
+Or at the other side,
+Maybe next time.`
+    },
+        {
+      title: "A wilted flower lies in peace",
+      date: "2026",
+      preview: "Here I am on a single studio,",
+      body: `Here I am on a single studio,
+I made it through,
+The computers have made me need glasses,
+Doing well now, in my classes,
+
+Only when I chose to bend,
+I escape this painful nail bed,
+A realization hits, confrontation,
+You wanted me to have self-preservation,
+
+When I look at the sky,
+I realize,
+That I have another source of light,
+And I became independently bright.`
+    },
+        {
+      title: "Is this what letting go feels like?",
+      date: "2026",
+      preview: "What has become of me?",
+      body: `What has become of me?
+All I see, is a boy whose afraid to fee,
+I ask myself why,
+When all I have done is cry,
+
+My apartment still has a blue shade,
+Just like the color of your jade,
+You know, I heard thunder,
+The same some I heard when we were youngsters,
+
+Head over heels for your approval,
+But when I saw you, I realize that I wasn't substantial,
+I still don't know how to say goodbye,
+Do I learn to move on?
+
+I feel a sense of, calm and helpless,
+When I realize, I was always less,
+I wish, I could have been more,
+Only if, I didn't close my door.`
+    },
+        {
+      title: "Could've been, what-ifs?",
+      date: "2026",
+      preview: "As I look through infinity,",
+      body: `As I look through infinity,
+It hits that I am ordinary,
+When I fell,
+Everything was broken beyond the shell,
+
+I wanted you to stay,
+But every time I wanted to say,
+You lead me estray,
+I tried for both our sake,
+
+You know I always hated severing,
+And you always talked about leaving,
+If I had confessed my feelings since eight,
+At least I may have had a chance to negotiate,
+
+If I had said my declaration,
+Then maybe, there could have been no separation,
+My dearest, you were always on the top of my narrative,
+I always imagined myself as a negative.`
+    },
+        {
+      title: "Treasure what you have",
+      date: "2026",
+      preview: "My life has been in a spiral downhill,",
+      body: `My life has been in a spiral downhill,
+Ever since you went up the biggest hill,
+I ask for fate, why is it so cruel?
+You were my only fuel,
+
+My happiness gone in the blink of an eye,
+I wonder, when will it be my time?
+The chain of thoughts that make me drive,
+Makes me wish I could have seen you thrive,
+
+You had, the highest courtesy,
+Yet you chose to be completely honest with me,
+Our stupid, yet highly anticipated dreams,
+Disappear along with thee,
+
+I pray, everyday that this is a dream,
+Yet I see the contrary.`
+    },
+        {
+      title: "Keeping love is hard",
+      date: "2026",
+      preview: "I have fallen for another,",
+      body: `I have fallen for another,
+My calendar had a reminder,
+Would have been our first anniversary,
+If we didn't go to different unversities,
+
+Was it illiteracy,
+When you were nice to me?
+Wallowing in despair,
+As I feel my body start to disrepair,
+
+My emotions got the best of me,
+As I look, a tree,
+The one we planted together when we were sixteen,
+It has turned ghostly,
+
+I wonder the depth,
+As I feel every breath,
+When I saw my new partners beauty,
+That's when I realized my love for you has gone truly empty.`
+    },
+        {
+      title: "A song that found me.",
+      date: "2026",
+      preview: "I heard your song on the radio,",
+      body: `I heard your song on the radio,
+God, I wish I hadn't played that stereo,
+I feel stupid,
+Even the rain feels like acid,
+
+I was on a vacation in Tokyo,
+And on the billboard, I saw your portfolio,
+This time, I saw you differently,
+Now I just feel apathy,
+
+I see myself as meaningless,
+I remember when I accepted your willingness,
+Was I really your jockey?
+Or do I have a blind psyche?
+
+Remember when you gave me a wrapper?
+Your favorite sweater,
+Now I'm stuck in this chamber,
+Realizing I'm a fucking failure.`
+    },
+        {
+      title: "She isn't coming back...",
+      date: "2026",
+      preview: "A bitter taste of life,",
+      body: `A bitter taste of life,
+As I wonder, what if you were mine,
+Feelings of melancholy,
+When I truly realize we weren't meant to be,
+
+Tightening my necktie,
+I swear I saw you nearby,
+Only that I saw a butterfly,
+You and another guy,
+
+What I saw was clear,
+You were no longer my dear,
+It's the twelfth,
+I'm no longer myself,
+
+All I can do is be on the backscreen,
+As I hope to never be seen,
+I may not be a griffin,
+But I cannot see myself being a phoenix.
+`
+    },
+        {
+      title: "Fading Love?",
+      date: "2026",
+      preview: "Recollecting my thoughts,",
+      body: `Recollecting my thoughts,
+Now I operate with a clear conscience,
+Shiny like the ore of quartz,
+I start gaining back my patience,
+
+My health is better, how have you been?
+See as you start to grin,
+"Mentally healthy",
+Still on our twenties,
+
+Still a fair maiden in my eyes,
+All the guys see you as a prize,
+As prosperous as our difference may be,
+We still rest under the same beating tree,
+
+I still sit below,
+Drinking our favorite cacao.`
+    },
+        {
+      title: "May our fates cross again",
+      date: "2026",
+      preview: "I am flown to sorrow,",
+      body: `I am flown to sorrow,
+I feel a sense of gloom within,
+A disgusting person, hurting like an urchin,
+Distancing yourself from me, I see, slowly forming a halo on thee,
+
+Hopeful, yet unable to be reassured,
+As I stand and look east, unsecured,
+Turned into a pessimistic person,
+Losing  hope by closing the bright curtain,
+
+Reminiscing of when I wore a mask,
+Reaching for a flask,
+Everyday being an empty canvas,
+Yet, when blessed by your grandness,
+I feel ever so gracious.
+
+So, this is goodbye?
+All the times I try to deny,
+And this is how it all ends?
+As I look at the pictures, our love torn to shreds.`
+    },
+        {
+      title: "I promised that I wouldn't forget",
+      date: "2026",
+      preview: "",
+      body: `Do you remember our vows?
+I remembered it, when I came back to our old house,
+I cried, and I cried,
+You told me it was your dream to live on the countryside,
+
+A promise that I've held on,
+Now I see the dawn rising east on my new lawn,
+I still see myself longing for you,
+Reminiscing of when we saw the ocean views,
+
+I still see you in my dreams,
+Trying to talk to you, yet always fleeting away from me,
+Desperate to fall asleep and see you again,
+I got closer to you, today,
+This time, we were riding the subway,
+All the dreams you were in led me estray,
+Throughout my many endeavors,
+I realize no one can replace you forever.`
+    },
+        {
+      title: "A piece of me died tonight",
+      date: "2026",
+      preview: "I see myself in denial,",
+      body: `I see myself in denial,
+A frantic plea gone viral,
+I try to understand what this symbolize,
+As I run from our fleeting paradise,
+
+The wind sharply breezes through the night,
+As I hope to see you in a bright light, in a dress of white,
+My thoughts begin to see you loathsome,
+And I remember our dreams of living in Harlem,
+
+As I write my feelings in this literature,
+I help myself by not looking at your letters of overture,
+Making sense trying to get out using bail,
+A realization hits, I am truly frail,
+
+The city lights brighten my darkest night,
+Yet, you shine brighter in my eyes,
+Is this goodbye?
+Maybe in another life.`
+    },
+        {
+      title: "Helpless after a thousand years",
+      date: "2026",
+      preview: "My dearest since forever,",
+      body: `My dearest since forever,
+I remember when I was still a wanderer,
+Yet after spending centuries alone,
+You are still of whom I adore,
+
+You were the only one of whose wits challenged mine,
+I still remember our times dining near the shrine,
+A precedent reputation after your passing,
+The civilization you built is still thriving,
+
+My dearest, %8^23!@3
+How have you been?
+I am nothing, still a constructed screen,
+Your novelty lives on for eternity.`
+    },
+        {
+      title: "The desire to not exist",
+      date: "2026",
+      preview: "Everyday feels revolting,",
+      body: `Everyday feels revolting,
+Existing is exhausting,
+I sit in a world full of billions,
+A man who can't even find his own purpose,
+
+I love in a household of desolate,
+Waiting for my inevitable fate,
+And when I ask myself if I have done enough,
+I sit on a cell, an open door, cuffed by my thoughts on the wall,
+
+I see my death on the screen,
+Yet I do not wnat it to be seen,
+I see her, my bride,
+She is waiting for me on the other side,
+
+These classified thoughts of mine alone,
+Waiting for deaths call on the payphone,
+My voice, all monotone,
+Counting my time on the ticking metronome.
+`
+    },
+        {
+      title: "A memory that doesn't exist",
+      date: "2026",
+      preview: "The thoughts of you subside,",
+      body: `The thoughts of you subside,
+Yet every time, I am mystified,
+You, are still starry-eyed,
+I remember that day when I cried,
+
+Today is the day,
+Where you were out, on a display,
+I see you, riding a red sleigh,
+A moment that I always display,
+
+Together we share our weakness,
+A brief moment of when we see our uniqueness,
+I feel your sweetness,
+Your skin feels so sleekness,
+
+I woke up,
+As my dream comes to an end,
+I choke up,
+My heart beating, trying to mend,
+I throw up,
+I forgot that we had a bitter end.`
+    },
+    {
+      title: "Deleted from existence",
+      date: "2026",
+      preview: "The sun goes down slower than I expected.",
+      body: `I thought that you had forgotten,
+Of my life, when it was rotten,
+You ask of why I was so atrocious,
+Yet you stop when you see into the gnosis,
+
+I sink slowly into my insanity,
+A wonder if it is all a fantasy,
+I stand here, feeling redundant,
+You stand in a pedestal, all triumphant,
+
+A man like me, full of sophistry,
+Even falls for the devils trickery,
+A life he proposed of realism,
+It made me question my moralism,
+
+Laying here, an organized conjugation,
+Sitting here, finding out the rest of my morphology,
+Even if I start rewriting,
+I start to see an distorted illusion,
+A fracked of never seen history,
+Of every sign that is foreboding.`
+    },
+    {
+      title: "The Long Route of Love by Two Lovers",
+      date: "2026",
+      preview: "A poem about love and the journey of two lovers.",
+      body: `Hi, I know you're seeing this,
+But my mind is in a heavy mist,
+I know you're full of fear,
+But you can reside next to me, dear,
+
+You know, you're the one I want,
+So let me use my magical bond,
+Calming you is my favorite past time,
+We we're on cloud nine,
+
+At first, it was an awkward silence that could only be broken by a falling dime,
+For all the guys that want you, having you by my side feels like a crime,
+Lover, my dearest, and the one I steered myself towards to,
+As we lean over the horizon, I see that our love has become true,
+Spring has arrived, our live is so beautiful, like the blooming flowers that pass by,
+
+The calmness with you has made me feel helpless,
+When I think of what might have been, I feel a sense of dreadfulness,
+Oh, I do! As my flattering heart accepts your proposal!
+I still reminisce of when you rejected your fathers endorsement of removal!
+
+Oh my dearest, how long has it been?
+It has been so long since I've been so keen,
+In our grand-children's eyes, I see you, my love,
+I think I saw you on the form of a dove,
+I love you.`
+    },
+    {
+      title: "A testament to my emotions",
+      date: "2026",
+      preview: "I am always on the other side, a child who has never learned.",
+      body: `I am always on the other side,
+A child who has never learned,
+Yet, my emotions always seem to yearn,
+for your dazzling light,
+
+How many times do I need to learn?
+Yet when I put these thoughts into words, my eyes always blur,
+I cant help but express that I am irreplaceable,
+But for me, you're indespesible,
+If I learn how to say goodbye,
+Will I be able to see myself moving on?
+
+I feel the heavy burdens of sorrow,
+For I have become nothing more than hollow,
+My mind is a room full of haze,
+A man mentally trapped in a distorted maze,
+
+I push myself away from your life,
+Reminiscing of what could have been while eating rice,
+I can't stop the tears,
+Even throughout, all these years,
+I wish I could have loved you, when you were near,
+I MISS YOU, MY DEAR,
+My dearest, #%&(*$%31
+You were the prettiest,
+The loveliest,
+Goodbye.`
+    }
+    
+  ];
+
+  function renderEntries(entries, container, emptyMessage){
+    if(entries.length === 0){
+      container.innerHTML = `<p class="empty-note">${emptyMessage}</p>`;
+      return;
+    }
+
+    entries.forEach((entry) => {
+      const item = document.createElement("div");
+      item.className = "entry";
+
+      item.innerHTML = `
+        <button class="entry-row" aria-expanded="false">
+          <span class="entry-mark">&rsaquo;</span>
+          <span class="entry-heading">
+            <span class="entry-title">${entry.title}</span>
+            <span class="entry-preview">${entry.preview || ""}</span>
+          </span>
+          <span class="entry-date">${entry.date || ""}</span>
+        </button>
+        <div class="entry-body-wrap">
+          <div class="entry-body-inner">
+            <p class="entry-body">${entry.body.trim()}</p>
+          </div>
+        </div>
+      `;
+
+      const row = item.querySelector(".entry-row");
+      row.addEventListener("click", () => {
+        const isOpen = item.classList.contains("open");
+        item.classList.toggle("open", !isOpen);
+        row.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      container.appendChild(item);
+    });
+  }
+
+  renderEntries(stories, document.getElementById("story-list"), "");
+  renderEntries(poems, document.getElementById("poem-list"), "");
+</script>
+
+<script>
+  const tracks = [
+    { name: "when-she-laughs.mp3", file: "audios/when-she-laughs.mp3" },
+    { name: "Placeholder", file: "audio/placeholder.mp3" }
+  ];
+
+  const audio = new Audio();
+  audio.volume = 0.8;
+  let currentTrack = -1;
+
+  const trackListEl = document.getElementById("track-list");
+  const volumeSlider = document.getElementById("volume-slider");
+  const playlistTab = document.getElementById("playlist-tab");
+  const playlistPanel = document.getElementById("playlist-panel");
+
+  const rows = tracks.map((track, i) => {
+    const row = document.createElement("div");
+    row.className = "track-row";
+    row.innerHTML = `
+      <button class="track-play" aria-label="Play ${track.name}">▶</button>
+      <span class="track-name">${track.name}</span>
+    `;
+    const btn = row.querySelector(".track-play");
+    btn.addEventListener("click", () => {
+      if(currentTrack === i && !audio.paused){
+        audio.pause();
+      } else {
+        playTrack(i);
+      }
+    });
+    trackListEl.appendChild(row);
+    return row;
+  });
+
+  function setPlayingUI(){
+    rows.forEach((row, i) => {
+      const btn = row.querySelector(".track-play");
+      const isThisTrack = i === currentTrack;
+      const isPlaying = isThisTrack && !audio.paused;
+      row.classList.toggle("playing", isPlaying);
+      btn.textContent = isPlaying ? "⏸" : "▶";
+    });
+  }
+
+  function playTrack(i){
+    currentTrack = (i + tracks.length) % tracks.length;
+    audio.src = tracks[currentTrack].file;
+    audio.play().catch(() => {
+    });
+    setPlayingUI();
+  }
+
+  audio.addEventListener("play", setPlayingUI);
+  audio.addEventListener("pause", setPlayingUI);
+  audio.addEventListener("ended", () => playTrack(currentTrack + 1));
+
+  volumeSlider.addEventListener("input", () => {
+    audio.volume = parseFloat(volumeSlider.value);
+  });
+
+  playlistTab.addEventListener("click", () => {
+    const isOpen = playlistPanel.classList.toggle("open");
+    playlistTab.classList.toggle("shifted", isOpen);
+    playlistTab.textContent = isOpen ? "✕ Close" : "♪ Playlist";
+  });
+</script>
+
+</body>
+</html>
