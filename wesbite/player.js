@@ -4,18 +4,13 @@ const tracks = [
 ];
 
 const audio = new Audio();
-
-const savedVolume = localStorage.getItem("poemSite.volume");
-audio.volume = savedVolume !== null ? parseFloat(savedVolume) : 0.8;
-
+audio.volume = 0.8;
 let currentTrack = -1;
 
 const trackListEl = document.getElementById("track-list");
 const volumeSlider = document.getElementById("volume-slider");
 const playlistTab = document.getElementById("playlist-tab");
 const playlistPanel = document.getElementById("playlist-panel");
-
-volumeSlider.value = audio.volume;
 
 const rows = tracks.map((track, i) => {
   const row = document.createElement("div");
@@ -60,7 +55,6 @@ audio.addEventListener("ended", () => playTrack(currentTrack + 1));
 
 volumeSlider.addEventListener("input", () => {
   audio.volume = parseFloat(volumeSlider.value);
-  localStorage.setItem("poemSite.volume", audio.volume);
 });
 
 playlistTab.addEventListener("click", () => {
