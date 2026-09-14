@@ -607,35 +607,73 @@ function renderEntries(entries, container, emptyMessage){
   }
 
   entries.forEach((entry) => {
-    const item = document.createElement("div");
-    item.className = "entry";
-
-    item.innerHTML = `
-      <button class="entry-row" aria-expanded="false">
-        <span class="entry-mark">&rsaquo;</span>
-        <span class="entry-heading">
-          <span class="entry-title">${entry.title}</span>
-          <span class="entry-preview">${entry.preview || ""}</span>
-        </span>
-        <span class="entry-date">${entry.date || ""}</span>
-      </button>
-      <div class="entry-body-wrap">
-        <div class="entry-body-inner">
-          <p class="entry-body">${entry.body.trim()}</p>
-        </div>
-      </div>
-    `;
-
-    const row = item.querySelector(".entry-row");
-    row.addEventListener("click", () => {
-      const isOpen = item.classList.contains("open");
-      item.classList.toggle("open", !isOpen);
-      row.setAttribute("aria-expanded", String(!isOpen));
-    });
-
+    const item = buildEntryEl(entry);
     container.appendChild(item);
   });
 }
 
+function buildEntryEl(entry){
+  const item = document.createElement("div");
+  item.className = "entry";
+
+  item.innerHTML = `
+    <button class="entry-row" aria-expanded="false">
+      <span class="entry-mark">&rsaquo;</span>
+      <span class="entry-heading">
+        <span class="entry-title">${entry.title}</span>
+        <span class="entry-preview">${entry.preview || ""}</span>
+      </span>
+      <span class="entry-date">${entry.date || ""}</span>
+    </button>
+    <div class="entry-body-wrap">
+      <div class="entry-body-inner">
+        <p class="entry-body">${entry.body.trim()}</p>
+      </div>
+    </div>
+  `;
+
+  const row = item.querySelector(".entry-row");
+  row.addEventListener("click", () => {
+    const isOpen = item.classList.contains("open");
+    item.classList.toggle("open", !isOpen);
+    row.setAttribute("aria-expanded", String(!isOpen));
+  });
+
+  return item;
+}
+
+function renderPoemsPaginated(entries, container, pageSize, emptyMessage){
+  if(entries.length === 0){
+    container.innerHTML = `<p class="empty-note">${emptyMessage}</p>`;
+    return;
+  }
+
+  let shown = 0;
+
+  const loadMoreBtn = document.createElement("button");
+  loadMoreBtn.className = "load-more";
+  loadMoreBtn.innerHTML = `
+    <span class="load-more-line"></span>
+    <span class="load-more-icon">⌄</span> Show more <span class="load-more-icon">⌄</span>
+    <span class="load-more-line"></span>
+  `;
+
+  function showNextPage(){
+    const next = entries.slice(shown, shown + pageSize);
+    next.forEach((entry) => {
+      container.insertBefore(buildEntryEl(entry), loadMoreBtn);
+    });
+    shown += next.length;
+
+    if(shown >= entries.length){
+      loadMoreBtn.remove();
+    }
+  }
+
+  loadMoreBtn.addEventListener("click", showNextPage);
+  container.appendChild(loadMoreBtn);
+  showNextPage();
+}
+
 renderEntries(stories, document.getElementById("story-list"), "");
-renderEntries(poems, document.getElementById("poem-list"), "");
+renderPoemsPaginated(poems, document.getElementById("poem-list"), 5, "");
