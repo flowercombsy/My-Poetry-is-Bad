@@ -18,6 +18,80 @@ const stories = [
 
 const poems = [
   {
+    title: "failure.docx",
+    date: "2026",
+    preview: "My life isn't working,",
+    body: `My life isnt working,
+I want to stop breathing,
+Yet everytime I try to commit,
+A force stops me, like a puppet,
+
+I thought of hanging,
+Shooting,
+But I realize the mess I'll be creating,
+And your pain will be excruciating,
+
+I hate thinking about you,
+Yet, I am afraid to hurt you,
+Frantic on my thought,
+As I untie the knots,
+
+I should be in damnation,
+Waste of occupation,
+My truth,
+I start to ring the telephone booth.
+`
+  },
+  {
+    title: "My dearest, _____ to My dearest _____,",
+    date: "2026",
+    preview: "My dearest, _____",
+    body: `My dearest, _____
+I saw myself on a mirror,
+No face, just water vapor,
+Blocked by moisture,
+
+As I write with tears,
+Growing fears,
+All of my lore,
+Of everything I fought for,
+
+It started to rain,
+Writing this, I almost faint,
+Standing now, on a roof,
+Contemplating of what I was about to do,
+
+My body strived,
+Yet my mind didn't want to survive,
+I guess I'm not over you,
+My dearest _____.`
+  },
+  {
+    title: "She looke different today",
+    date: "2026",
+    preview: "Everyone is waiting,",
+    body: `Everyone is waiting,
+For a response that never came,
+Did they expect a revision?
+Disgusting fascinations,
+
+I open the door gently,
+A view of endless seas,
+All fake, all fake,
+Forced to be awake,
+
+Is it possible to keep my sanity?
+I just, want to be happy,
+You're looking differently,
+Like I'm a tragedy,
+
+Standing in silence,
+I remember that fragrance,
+Oh poor me, full of rejection,
+Not everything has a solution.
+`
+  },
+  {
     title: "You showed me happiness, I held it forever",
     date: "2026",
     preview: "I hold on to it,",
