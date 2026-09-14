@@ -469,7 +469,7 @@ As I look at the pictures, our love torn to shreds.`
   {
     title: "I promised that I wouldn't forget",
     date: "2026",
-    preview: "",
+    preview: "Do you remember our vows?",
     body: `Do you remember our vows?
 I remembered it, when I came back to our old house,
 I cried, and I cried,
