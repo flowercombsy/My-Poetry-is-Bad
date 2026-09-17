@@ -39,7 +39,7 @@ I planned to die,
 Heart, petrified,
 Nothing feels justified,
 Why? I think,
-Delaying it to six.`,
+Delaying it until six.`,
   },
   {
     title: "failure.docx",
