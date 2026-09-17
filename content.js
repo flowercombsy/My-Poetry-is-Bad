@@ -18,6 +18,30 @@ const stories = [
 
 const poems = [
   {
+    title: "The neverending sorrow",
+    date: "2026",
+    preview: "Even today,",
+    body: `Even today,
+I feel empty,
+Will tomorrow be the same?
+Or will it all repeat like a game?
+
+I'm, depressed,
+Yet I put a clear dress,
+Of everything pure,
+Inside, all of its blue,
+
+Existential crisis,
+Of someone who has always missed,
+At five,
+I planned to die,
+
+Heart, petrified,
+Nothing feels justified,
+Why? I think,
+Delaying it to six.`,
+  },
+  {
     title: "failure.docx",
     date: "2026",
     preview: "My life isn't working,",
