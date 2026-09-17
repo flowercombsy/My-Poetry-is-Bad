@@ -75,6 +75,48 @@ h2{
   color: var(--ink);
 }
 
+.poems-header{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.poems-header h2{
+  margin-bottom: 1.8rem;
+}
+
+.poem-search{
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--hair);
+  color: var(--ink);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.95rem;
+  padding: 0.3rem 0.1rem 0.5rem;
+  width: 180px;
+  max-width: 100%;
+  margin-bottom: 1.8rem;
+  transition: border-color 0.2s ease;
+}
+
+.poem-search::placeholder{
+  color: var(--ink-dim);
+}
+
+.poem-search:focus{
+  outline: none;
+  border-color: var(--brass);
+}
+
+.entry-number{
+  color: var(--brass);
+  font-style: normal;
+  font-size: 0.85em;
+  opacity: 0.85;
+}
+
 .entry-list{
   display: flex;
   flex-direction: column;

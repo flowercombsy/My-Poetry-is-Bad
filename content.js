@@ -718,7 +718,7 @@ function buildEntryEl(entry){
     <button class="entry-row" aria-expanded="false">
       <span class="entry-mark">&rsaquo;</span>
       <span class="entry-heading">
-        <span class="entry-title">${entry.title}</span>
+        <span class="entry-title">${entry.number !== undefined ? `<span class="entry-number">#${entry.number}</span> ` : ""}${entry.title}</span>
         <span class="entry-preview">${entry.preview || ""}</span>
       </span>
       <span class="entry-date">${entry.date || ""}</span>
@@ -740,38 +740,56 @@ function buildEntryEl(entry){
   return item;
 }
 
-function renderPoemsPaginated(entries, container, pageSize, emptyMessage){
-  if(entries.length === 0){
-    container.innerHTML = `<p class="empty-note">${emptyMessage}</p>`;
-    return;
-  }
+function setupPoemsSection(entries, container, searchInput, pageSize){
+  const numbered = entries.map((entry, i) => ({
+    ...entry,
+    number: entries.length - i
+  }));
 
-  let shown = 0;
+  let shown = pageSize;
+  let query = "";
 
-  const loadMoreBtn = document.createElement("button");
-  loadMoreBtn.className = "load-more";
-  loadMoreBtn.innerHTML = `
-    <span class="load-more-line"></span>
-    <span class="load-more-icon">⌄</span> Show more <span class="load-more-icon">⌄</span>
-    <span class="load-more-line"></span>
-  `;
+  function render(){
+    container.innerHTML = "";
 
-  function showNextPage(){
-    const next = entries.slice(shown, shown + pageSize);
-    next.forEach((entry) => {
-      container.insertBefore(buildEntryEl(entry), loadMoreBtn);
+    const filtered = query
+      ? numbered.filter((entry) => entry.title.toLowerCase().includes(query))
+      : numbered;
+
+    if(filtered.length === 0){
+      container.innerHTML = `<p class="empty-note">No poems match "${searchInput.value}".</p>`;
+      return;
+    }
+
+    const visible = query ? filtered : filtered.slice(0, shown);
+
+    visible.forEach((entry) => {
+      container.appendChild(buildEntryEl(entry));
     });
-    shown += next.length;
 
-    if(shown >= entries.length){
-      loadMoreBtn.remove();
+    if(!query && shown < filtered.length){
+      const loadMoreBtn = document.createElement("button");
+      loadMoreBtn.className = "load-more";
+      loadMoreBtn.innerHTML = `
+        <span class="load-more-line"></span>
+        <span class="load-more-icon">⌄</span> Show more <span class="load-more-icon">⌄</span>
+        <span class="load-more-line"></span>
+      `;
+      loadMoreBtn.addEventListener("click", () => {
+        shown += pageSize;
+        render();
+      });
+      container.appendChild(loadMoreBtn);
     }
   }
 
-  loadMoreBtn.addEventListener("click", showNextPage);
-  container.appendChild(loadMoreBtn);
-  showNextPage();
+  searchInput.addEventListener("input", () => {
+    query = searchInput.value.trim().toLowerCase();
+    render();
+  });
+
+  render();
 }
 
 renderEntries(stories, document.getElementById("story-list"), "");
-renderPoemsPaginated(poems, document.getElementById("poem-list"), 5, "");
+setupPoemsSection(poems, document.getElementById("poem-list"), document.getElementById("poem-search"), 5);
