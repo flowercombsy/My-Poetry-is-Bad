@@ -18,6 +18,30 @@ const stories = [
 
 const poems = [
   {
+    title: "Unveiled emotions",
+    date: "2026",
+    preview: "Oh my emotions despondent,",
+    body: `Oh my emotions despondent,
+You played with my heart like an instrument,
+Tricked me in believing of courtship,
+I was never told it was just a quip,
+
+Healed my scars,
+And kept them in your memoirs,
+A vulnerable me,
+Stupid enough to fall to your trickery,
+
+Convinced of my defeat,
+Left severely sullied,
+Why did you contrive?
+When you knew the effect; on my life,
+
+It hurts,
+Kept me avert,
+Pulled me back for more,
+And left me offshore.`
+  },
+  {
     title: "The neverending sorrow",
     date: "2026",
     preview: "Even today,",
