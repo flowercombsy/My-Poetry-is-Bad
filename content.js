@@ -18,6 +18,30 @@ const stories = [
 
 const poems = [
   {
+    title: "Your beautiful pendant",
+    date: "2026",
+    preview: "Oh my dear,",
+    body: `Oh my dear,
+I saw your pendant,
+It was so clear!
+Relinquished of my resentment,
+
+I see the emptiness,
+Asking myself; will I ever find happiness?
+Nothing will end the pain,
+Everything in vain,
+
+Indecisive,
+My story is inconclusive,
+Yet, you,
+Control yours like a voodoo,
+
+How can I be as shiny?
+When my light can't even be brightly,
+Now at the contemporary,
+I can't even live carefree.`,
+  },
+  {
     title: "Unveiled emotions",
     date: "2026",
     preview: "Oh my emotions despondent,",
