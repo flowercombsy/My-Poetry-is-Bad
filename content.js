@@ -20,8 +20,8 @@ const poems = [
   {
     title: "Your beautiful pendant",
     date: "2026",
-    preview: "Oh my dear,",
-    body: `Oh my dear,
+    preview: "My dear,",
+    body: `My dear,
 I saw your pendant,
 It was so clear!
 Relinquished of my resentment,
