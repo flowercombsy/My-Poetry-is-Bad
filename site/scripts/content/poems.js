@@ -1,74 +1,10 @@
-const stories = [
-  {
-    title: "The Beginning of Everything.",
-    date: "2026",
-    preview: "As I run through the forest,",
-    body: `I run from the bandits that slayed my mother,
-    Nothing here is comforting, I am in pain`
-  },
-  {
-    title: "Will I be able to eat today?",
-    date: "2026",
-    preview: "I have been for days without food,",
-    body: `I have been running for days without food,
-    I feel my legs start to weaken,
-    My life, is this what it amounts to?`
-  }
-];
-
 const poems = [
   {
-    title: "Your beautiful pendant",
-    date: "2026",
-    preview: "My dear,",
-    body: `My dear,
-I saw your pendant,
-It was so clear!
-Relinquished of my resentment,
-
-I see the emptiness,
-Asking myself; will I ever find happiness?
-Nothing will end the pain,
-Everything in vain,
-
-Indecisive,
-My story is inconclusive,
-Yet, you,
-Control yours like a voodoo,
-
-How can I be as shiny?
-When my light can't even be brightly,
-Now at the contemporary,
-I can't even live carefree.`,
-  },
-  {
-    title: "Unveiled emotions",
-    date: "2026",
-    preview: "Oh my emotions despondent,",
-    body: `Oh my emotions despondent,
-You played with my heart like an instrument,
-Tricked me in believing of courtship,
-I was never told it was just a quip,
-
-Healed my scars,
-And kept them in your memoirs,
-A vulnerable me,
-Stupid enough to fall to your trickery,
-
-Convinced of my defeat,
-Left severely sullied,
-Why did you contrive?
-When you knew the effect; on my life,
-
-It hurts,
-Kept me avert,
-Pulled me back for more,
-And left me offshore.`
-  },
-  {
+    id: "the-neverending-sorrow",
     title: "The neverending sorrow",
     date: "2026",
     preview: "Even today,",
+    cover: "images/poem-cover.png",
     body: `Even today,
 I feel empty,
 Will tomorrow be the same?
@@ -87,12 +23,14 @@ I planned to die,
 Heart, petrified,
 Nothing feels justified,
 Why? I think,
-Delaying it until six.`,
+Delaying it until six.`
   },
   {
+    id: "failure-docx",
     title: "failure.docx",
     date: "2026",
     preview: "My life isn't working,",
+    cover: "images/poem-cover.png",
     body: `My life isnt working,
 I want to stop breathing,
 Yet everytime I try to commit,
@@ -115,9 +53,11 @@ I start to ring the telephone booth.
 `
   },
   {
+    id: "my-dearest-to-my-dearest",
     title: "My dearest, _____ to My dearest _____,",
     date: "2026",
     preview: "My dearest, _____",
+    cover: "images/poem-cover.png",
     body: `My dearest, _____
 I saw myself on a mirror,
 No face, just water vapor,
@@ -139,9 +79,11 @@ I guess I'm not over you,
 My dearest _____.`
   },
   {
+    id: "she-looke-different-today",
     title: "She looke different today",
     date: "2026",
     preview: "Everyone is waiting,",
+    cover: "images/poem-cover.png",
     body: `Everyone is waiting,
 For a response that never came,
 Did they expect a revision?
@@ -164,9 +106,11 @@ Not everything has a solution.
 `
   },
   {
+    id: "you-showed-me-happiness",
     title: "You showed me happiness, I held it forever",
     date: "2026",
     preview: "I hold on to it,",
+    cover: "images/poem-cover.png",
     body: `I hold on to it,
 Hoping it would never split,
 I feel free,
@@ -189,9 +133,11 @@ A new ambition.
 `
   },
   {
+    id: "my-soul-mate-that-wasnt-meant-to-be",
     title: "My soul mate that wasn't meant to be",
     date: "2026",
     preview: "Our love has told me,",
+    cover: "images/poem-cover.png",
     body: `Our love has told me,
 That we were too early to be,
 My vow of unconditional love,
@@ -214,9 +160,11 @@ I wish to dream eternally.
 `
   },
   {
+    id: "a-bittersweet-ending",
     title: "A bittersweet ending,",
     date: "2026",
     preview: "Tearful goodbyes, not my style,",
+    cover: "images/poem-cover.png",
     body: `Tearful goodbyes, not my style,
 Yet after the smiles,
 I run for miles,
@@ -238,9 +186,11 @@ Our love was real,
 But fragile like pure steel.`
   },
   {
+    id: "do-you-still-think-about-me-too",
     title: "Do you still think about me too?",
     date: "2026",
     preview: "Hangover from last night,",
+    cover: "images/poem-cover.png",
     body: `Hangover from last night,
 Appetite, satisfied,
 Nameless, yet fascinated,
@@ -260,9 +210,11 @@ Uncertain, and became an allay.
 `
   },
   {
+    id: "heartbroken-but-in-love",
     title: "Heartbroken, but in love",
     date: "2026",
     preview: "As I walk towards the bay,",
+    cover: "images/poem-cover.png",
     body: `As I walk towards the bay,
 A woman interrupts my way,
 She asked me, are you fine?
@@ -284,9 +236,11 @@ Looked back, she disappeared,
 Now I see that was my consciousness trying to interfere.`
   },
   {
+    id: "eternally-yours",
     title: "Eternally, yours",
     date: "2026",
     preview: "One last time,",
+    cover: "images/poem-cover.png",
     body: `One last time,
 I wish to see you, heroine,
 For the last time,
@@ -308,9 +262,11 @@ I was satisfied,
 God, I wish you just lied.`
   },
   {
+    id: "my-last-letter-to-you",
     title: "My last letter to you",
     date: "2026",
     preview: "Hi my dearest,",
+    cover: "images/poem-cover.png",
     body: `Hi my dearest,
 I hope this letter meets you after my attempt,
 When the time is right,
@@ -330,9 +286,11 @@ Or at the other side,
 Maybe next time.`
   },
   {
+    id: "a-wilted-flower-lies-in-peace",
     title: "A wilted flower lies in peace",
     date: "2026",
     preview: "Here I am on a single studio,",
+    cover: "images/poem-cover.png",
     body: `Here I am on a single studio,
 I made it through,
 The computers have made me need glasses,
@@ -349,9 +307,11 @@ That I have another source of light,
 And I became independently bright.`
   },
   {
+    id: "is-this-what-letting-go-feels-like",
     title: "Is this what letting go feels like?",
     date: "2026",
     preview: "What has become of me?",
+    cover: "images/poem-cover.png",
     body: `What has become of me?
 All I see, is a boy whose afraid to fee,
 I ask myself why,
@@ -373,9 +333,11 @@ I wish, I could have been more,
 Only if, I didn't close my door.`
   },
   {
+    id: "couldve-been-what-ifs",
     title: "Could've been, what-ifs?",
     date: "2026",
     preview: "As I look through infinity,",
+    cover: "images/poem-cover.png",
     body: `As I look through infinity,
 It hits that I am ordinary,
 When I fell,
@@ -397,9 +359,11 @@ My dearest, you were always on the top of my narrative,
 I always imagined myself as a negative.`
   },
   {
+    id: "treasure-what-you-have",
     title: "Treasure what you have",
     date: "2026",
     preview: "My life has been in a spiral downhill,",
+    cover: "images/poem-cover.png",
     body: `My life has been in a spiral downhill,
 Ever since you went up the biggest hill,
 I ask for fate, why is it so cruel?
@@ -419,9 +383,11 @@ I pray, everyday that this is a dream,
 Yet I see the contrary.`
   },
   {
+    id: "keeping-love-is-hard",
     title: "Keeping love is hard",
     date: "2026",
     preview: "I have fallen for another,",
+    cover: "images/poem-cover.png",
     body: `I have fallen for another,
 My calendar had a reminder,
 Would have been our first anniversary,
@@ -443,9 +409,11 @@ When I saw my new partners beauty,
 That's when I realized my love for you has gone truly empty.`
   },
   {
+    id: "a-song-that-found-me",
     title: "A song that found me.",
     date: "2026",
     preview: "I heard your song on the radio,",
+    cover: "images/poem-cover.png",
     body: `I heard your song on the radio,
 God, I wish I hadn't played that stereo,
 I feel stupid,
@@ -467,9 +435,11 @@ Now I'm stuck in this chamber,
 Realizing I'm a fucking failure.`
   },
   {
+    id: "she-isnt-coming-back",
     title: "She isn't coming back...",
     date: "2026",
     preview: "A bitter taste of life,",
+    cover: "images/poem-cover.png",
     body: `A bitter taste of life,
 As I wonder, what if you were mine,
 Feelings of melancholy,
@@ -492,9 +462,11 @@ But I cannot see myself being a phoenix.
 `
   },
   {
+    id: "fading-love",
     title: "Fading Love?",
     date: "2026",
     preview: "Recollecting my thoughts,",
+    cover: "images/poem-cover.png",
     body: `Recollecting my thoughts,
 Now I operate with a clear conscience,
 Shiny like the ore of quartz,
@@ -514,9 +486,11 @@ I still sit below,
 Drinking our favorite cacao.`
   },
   {
+    id: "may-our-fates-cross-again",
     title: "May our fates cross again",
     date: "2026",
     preview: "I am flown to sorrow,",
+    cover: "images/poem-cover.png",
     body: `I am flown to sorrow,
 I feel a sense of gloom within,
 A disgusting person, hurting like an urchin,
@@ -539,9 +513,11 @@ And this is how it all ends?
 As I look at the pictures, our love torn to shreds.`
   },
   {
+    id: "i-promised-that-i-wouldnt-forget",
     title: "I promised that I wouldn't forget",
     date: "2026",
     preview: "Do you remember our vows?",
+    cover: "images/poem-cover.png",
     body: `Do you remember our vows?
 I remembered it, when I came back to our old house,
 I cried, and I cried,
@@ -562,9 +538,11 @@ Throughout my many endeavors,
 I realize no one can replace you forever.`
   },
   {
+    id: "a-piece-of-me-died-tonight",
     title: "A piece of me died tonight",
     date: "2026",
     preview: "I see myself in denial,",
+    cover: "images/poem-cover.png",
     body: `I see myself in denial,
 A frantic plea gone viral,
 I try to understand what this symbolize,
@@ -586,9 +564,11 @@ Is this goodbye?
 Maybe in another life.`
   },
   {
+    id: "helpless-after-a-thousand-years",
     title: "Helpless after a thousand years",
     date: "2026",
     preview: "My dearest since forever,",
+    cover: "images/poem-cover.png",
     body: `My dearest since forever,
 I remember when I was still a wanderer,
 Yet after spending centuries alone,
@@ -605,9 +585,11 @@ I am nothing, still a constructed screen,
 Your novelty lives on for eternity.`
   },
   {
+    id: "the-desire-to-not-exist",
     title: "The desire to not exist",
     date: "2026",
     preview: "Everyday feels revolting,",
+    cover: "images/poem-cover.png",
     body: `Everyday feels revolting,
 Existing is exhausting,
 I sit in a world full of billions,
@@ -630,9 +612,11 @@ Counting my time on the ticking metronome.
 `
   },
   {
+    id: "a-memory-that-doesnt-exist",
     title: "A memory that doesn't exist",
     date: "2026",
     preview: "The thoughts of you subside,",
+    cover: "images/poem-cover.png",
     body: `The thoughts of you subside,
 Yet every time, I am mystified,
 You, are still starry-eyed,
@@ -656,9 +640,11 @@ I throw up,
 I forgot that we had a bitter end.`
   },
   {
+    id: "deleted-from-existence",
     title: "Deleted from existence",
     date: "2026",
     preview: "The sun goes down slower than I expected.",
+    cover: "images/poem-cover.png",
     body: `I thought that you had forgotten,
 Of my life, when it was rotten,
 You ask of why I was so atrocious,
@@ -682,9 +668,11 @@ A fracked of never seen history,
 Of every sign that is foreboding.`
   },
   {
+    id: "the-long-route-of-love-by-two-lovers",
     title: "The Long Route of Love by Two Lovers",
     date: "2026",
     preview: "A poem about love and the journey of two lovers.",
+    cover: "images/poem-cover.png",
     body: `Hi, I know you're seeing this,
 But my mind is in a heavy mist,
 I know you're full of fear,
@@ -713,9 +701,11 @@ I think I saw you on the form of a dove,
 I love you.`
   },
   {
+    id: "a-testament-to-my-emotions",
     title: "A testament to my emotions",
     date: "2026",
     preview: "I am always on the other side, a child who has never learned.",
+    cover: "images/poem-cover.png",
     body: `I am always on the other side,
 A child who has never learned,
 Yet, my emotions always seem to yearn,
@@ -745,99 +735,3 @@ The loveliest,
 Goodbye.`
   }
 ];
-
-function renderEntries(entries, container, emptyMessage){
-  if(entries.length === 0){
-    container.innerHTML = `<p class="empty-note">${emptyMessage}</p>`;
-    return;
-  }
-
-  entries.forEach((entry) => {
-    const item = buildEntryEl(entry);
-    container.appendChild(item);
-  });
-}
-
-function buildEntryEl(entry){
-  const item = document.createElement("div");
-  item.className = "entry";
-
-  item.innerHTML = `
-    <button class="entry-row" aria-expanded="false">
-      <span class="entry-mark">&rsaquo;</span>
-      <span class="entry-heading">
-        <span class="entry-title">${entry.number !== undefined ? `<span class="entry-number">#${entry.number}</span> ` : ""}${entry.title}</span>
-        <span class="entry-preview">${entry.preview || ""}</span>
-      </span>
-      <span class="entry-date">${entry.date || ""}</span>
-    </button>
-    <div class="entry-body-wrap">
-      <div class="entry-body-inner">
-        <p class="entry-body">${entry.body.trim()}</p>
-      </div>
-    </div>
-  `;
-
-  const row = item.querySelector(".entry-row");
-  row.addEventListener("click", () => {
-    const isOpen = item.classList.contains("open");
-    item.classList.toggle("open", !isOpen);
-    row.setAttribute("aria-expanded", String(!isOpen));
-  });
-
-  return item;
-}
-
-function setupPoemsSection(entries, container, searchInput, pageSize){
-  const numbered = entries.map((entry, i) => ({
-    ...entry,
-    number: entries.length - i
-  }));
-
-  let shown = pageSize;
-  let query = "";
-
-  function render(){
-    container.innerHTML = "";
-
-    const filtered = query
-      ? numbered.filter((entry) => entry.title.toLowerCase().includes(query))
-      : numbered;
-
-    if(filtered.length === 0){
-      container.innerHTML = `<p class="empty-note">No poems match "${searchInput.value}".</p>`;
-      return;
-    }
-
-    const visible = query ? filtered : filtered.slice(0, shown);
-
-    visible.forEach((entry) => {
-      container.appendChild(buildEntryEl(entry));
-    });
-
-    if(!query && shown < filtered.length){
-      const loadMoreBtn = document.createElement("button");
-      loadMoreBtn.className = "load-more";
-      loadMoreBtn.innerHTML = `
-        <span class="load-more-line"></span>
-        <span class="load-more-icon">⌄</span> Show more <span class="load-more-icon">⌄</span>
-        <span class="load-more-line"></span>
-      `;
-      loadMoreBtn.addEventListener("click", () => {
-        shown += pageSize;
-        render();
-      });
-      container.appendChild(loadMoreBtn);
-    }
-  }
-
-  searchInput.addEventListener("input", () => {
-    query = searchInput.value.trim().toLowerCase();
-    render();
-  });
-
-  render();
-}
-
-renderEntries(stories, document.getElementById("story-list"), "");
-setupPoemsSection(poems, document.getElementById("poem-list"), document.getElementById("poem-search"), 5);

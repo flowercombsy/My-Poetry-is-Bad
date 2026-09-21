@@ -1,0 +1,105 @@
+:root{
+  --bg: #0b0b0a;
+  --ink: #e9e4d9;
+  --ink-dim: #97917f;
+  --hair: #2a2822;
+  --brass: #b3925c;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body{
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+a{ color: inherit; text-decoration: none; }
+
+::selection{
+  background: var(--brass);
+  color: #0b0b0a;
+}
+
+/* header — site title up top */
+
+header{
+  padding: 4.5rem 2rem 3rem;
+  text-align: center;
+  border-bottom: 1px solid var(--hair);
+}
+
+header h1{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+header p{
+  margin: 0;
+  color: var(--ink-dim);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+/* section heading style, reused everywhere */
+
+h2{
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.9rem;
+  margin: 0 0 1.8rem;
+  color: var(--ink);
+}
+
+/* small circular icon next to a section heading — used on the
+   home page next to "Story" and "Poems" */
+
+.section-heading{
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.section-heading h2{
+  margin-bottom: 0;
+}
+
+.section-icon{
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--hair);
+}
+
+.empty-note{
+  color: var(--ink-dim);
+  font-style: italic;
+}
+
+footer{
+  text-align: center;
+  padding: 2.5rem 1rem 3rem;
+  color: var(--ink-dim);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--hair);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    transition: none !important;
+  }
+}
