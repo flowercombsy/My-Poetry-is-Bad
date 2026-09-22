@@ -57,26 +57,6 @@
   text-transform: uppercase;
 }
 
-.category-switch{
-  display: flex;
-  gap: 0.6rem;
-}
-
-.category-switch-link{
-  border: 1px solid var(--hair);
-  border-radius: 6px;
-  padding: 0.35rem 0.9rem;
-  font-size: 0.85rem;
-  color: var(--ink-dim);
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.category-switch-link:hover,
-.category-switch-link.current{
-  color: var(--brass);
-  border-color: var(--brass);
-}
-
 .detail-date{
   color: var(--ink-dim);
   font-size: 0.9rem;
