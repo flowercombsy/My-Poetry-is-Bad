@@ -20,6 +20,7 @@ function buildLinkRow(entry, pageFile, numberLabel){
 }
 
 function setupUnifiedList(){
+  const listPage = document.querySelector("main.list-page");
   const container = document.getElementById("entry-list");
   const categorySelect = document.getElementById("category-select");
   const searchInput = document.getElementById("entry-search");
@@ -39,36 +40,30 @@ function setupUnifiedList(){
     pageFile: "story.html"
   }));
 
-  const allEntries = [...taggedStories, ...numberedPoems];
-
-  let shown = pageSize;
+  let poemShown = pageSize;
+  let storyShown = pageSize;
   let query = "";
   let category = "all";
 
-  function getFiltered(){
-    let list = category === "all" ? allEntries : allEntries.filter((e) => e.type === category);
-    if(query){
-      list = list.filter((e) => e.title.toLowerCase().includes(query));
-    }
-    return list;
+  function matchesQuery(entry){
+    return !query || entry.title.toLowerCase().includes(query);
   }
 
-  function render(){
-    container.innerHTML = "";
-    const filtered = getFiltered();
+  // builds one column's worth of rows + its own "Show more", used both
+  // for a single filtered list and for each side of the "All" view
+  function fillColumn(listEl, entries, shownCount, emptyMessage, onShowMore){
+    const filtered = entries.filter(matchesQuery);
 
     if(filtered.length === 0){
-      container.innerHTML = `<p class="empty-note">Nothing matches "${searchInput.value}".</p>`;
+      listEl.innerHTML = `<p class="empty-note">${emptyMessage}</p>`;
       return;
     }
 
-    const visible = query ? filtered : filtered.slice(0, shown);
-
-    visible.forEach((entry) => {
-      container.appendChild(buildLinkRow(entry, entry.pageFile, entry.number));
+    filtered.slice(0, shownCount).forEach((entry) => {
+      listEl.appendChild(buildLinkRow(entry, entry.pageFile, entry.number));
     });
 
-    if(!query && shown < filtered.length){
+    if(shownCount < filtered.length){
       const loadMoreBtn = document.createElement("button");
       loadMoreBtn.className = "load-more";
       loadMoreBtn.innerHTML = `
@@ -76,17 +71,56 @@ function setupUnifiedList(){
         <span class="load-more-icon">⌄</span> Show more <span class="load-more-icon">⌄</span>
         <span class="load-more-line"></span>
       `;
-      loadMoreBtn.addEventListener("click", () => {
-        shown += pageSize;
+      loadMoreBtn.addEventListener("click", onShowMore);
+      listEl.appendChild(loadMoreBtn);
+    }
+  }
+
+  function render(){
+    container.innerHTML = "";
+
+    if(category === "all"){
+      // two side-by-side columns: Poem (left), Story (right)
+      listPage.classList.add("wide");
+      container.className = "entry-columns";
+
+      const poemList = document.createElement("div");
+      poemList.className = "entry-list";
+      fillColumn(poemList, numberedPoems, poemShown, "No poems match.", () => {
+        poemShown += pageSize;
         render();
       });
-      container.appendChild(loadMoreBtn);
+
+      const divider = document.createElement("div");
+      divider.className = "divider";
+
+      const storyList = document.createElement("div");
+      storyList.className = "entry-list";
+      fillColumn(storyList, taggedStories, storyShown, "No stories match.", () => {
+        storyShown += pageSize;
+        render();
+      });
+
+      container.append(poemList, divider, storyList);
+    } else {
+      // a single, full-width filtered list
+      listPage.classList.remove("wide");
+      container.className = "entry-list";
+
+      const entries = category === "poem" ? numberedPoems : taggedStories;
+      const shownCount = category === "poem" ? poemShown : storyShown;
+
+      fillColumn(container, entries, shownCount, `Nothing matches "${searchInput.value}".`, () => {
+        if(category === "poem") poemShown += pageSize; else storyShown += pageSize;
+        render();
+      });
     }
   }
 
   categorySelect.addEventListener("change", () => {
     category = categorySelect.value;
-    shown = pageSize;
+    poemShown = pageSize;
+    storyShown = pageSize;
     render();
   });
 
