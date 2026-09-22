@@ -12,7 +12,6 @@ function renderDetailPage(entries, categoryLabel){
   const titleEl = document.getElementById("detail-title");
   const dateEl = document.getElementById("detail-date");
   const bodyEl = document.getElementById("detail-body");
-  const coverEl = document.getElementById("detail-cover");
   const categoryEl = document.getElementById("detail-category");
 
   if(!entry){
@@ -27,14 +26,6 @@ function renderDetailPage(entries, categoryLabel){
   dateEl.textContent = entry.date || "";
   bodyEl.textContent = entry.body.trim();
   categoryEl.textContent = categoryLabel;
-
-  if(entry.cover){
-    coverEl.src = entry.cover;
-    coverEl.alt = `${categoryLabel} cover art`;
-    coverEl.style.display = "block";
-  } else {
-    coverEl.style.display = "none";
-  }
 
   // if this is a poem, show its number the same way the home page does
   if(categoryLabel === "Poem"){

@@ -1,27 +1,52 @@
-/* the Story / Poems lists on the home page — you don't need to edit this file */
+/* the merged Story+Poems list on the home page — you don't need to edit this file */
 
-main{
-  display: grid;
-  grid-template-columns: minmax(240px, 34%) 1px minmax(0, 1fr);
-  max-width: 1180px;
+.site-cover{
+  display: block;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--hair);
+  margin: 0 auto 1.5rem;
+}
+
+main.list-page{
+  max-width: 760px;
   margin: 0 auto;
-  min-height: 60vh;
+  padding: 3.5rem 2rem 6rem;
 }
 
-.divider{
-  background: var(--hair);
-}
-
-section{
-  padding: 3.5rem 3rem;
-}
-
-.poems-header{
+.list-controls{
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.category-select-wrap{
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--ink-dim);
+}
+
+.category-select-wrap select{
+  background: #141310;
+  border: 1px solid var(--hair);
+  color: var(--ink);
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.category-select-wrap select:focus{
+  outline: none;
+  border-color: var(--brass);
 }
 
 .poem-search{
@@ -34,7 +59,6 @@ section{
   padding: 0.3rem 0.1rem 0.5rem;
   width: 180px;
   max-width: 100%;
-  margin-bottom: 1.8rem;
   transition: border-color 0.2s ease;
 }
 
@@ -163,15 +187,8 @@ section{
   line-height: 1;
 }
 
-@media (max-width: 760px){
-  main{
-    grid-template-columns: 1fr;
-  }
-  .divider{
-    display: none;
-  }
-  section{
-    padding: 2.5rem 1.5rem;
-    border-bottom: 1px solid var(--hair);
+@media (max-width: 600px){
+  main.list-page{
+    padding: 2.5rem 1.3rem 4rem;
   }
 }

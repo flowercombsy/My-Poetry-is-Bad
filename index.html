@@ -55,32 +55,26 @@ Credits: <a href="https://www.youtube.com/@Seycara" target="_blank" rel="noopene
 </div>
 
 <header>
+  <img src="images/preview.png" alt="" class="site-cover">
   <h1>My final light</h1>
   <p>Old ones are down there, The new ones are up here.</p>
 </header>
 
-<main>
+<main class="list-page">
 
-  <section id="story">
-    <div class="section-heading">
-      <img src="images/story-cover.png" alt="" class="section-icon">
-      <h2>Story</h2>
-    </div>
-    <div class="entry-list" id="story-list"></div>
-  </section>
+  <div class="list-controls">
+    <label class="category-select-wrap">
+      <span>Category</span>
+      <select id="category-select">
+        <option value="all">All</option>
+        <option value="story">Story</option>
+        <option value="poem">Poems</option>
+      </select>
+    </label>
+    <input type="text" id="entry-search" class="poem-search" placeholder="Search titles…" aria-label="Search titles">
+  </div>
 
-  <div class="divider"></div>
-
-  <section id="poems">
-    <div class="poems-header">
-      <div class="section-heading">
-        <img src="images/poem-cover.png" alt="" class="section-icon">
-        <h2>Poems</h2>
-      </div>
-      <input type="text" id="poem-search" class="poem-search" placeholder="Search titles…" aria-label="Search poem titles">
-    </div>
-    <div class="entry-list" id="poem-list"></div>
-  </section>
+  <div class="entry-list" id="entry-list"></div>
 
 </main>
 

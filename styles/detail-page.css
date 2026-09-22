@@ -36,34 +36,18 @@
   line-height: 1.25;
 }
 
-/* image cover (left) + info column (right) */
+/* category badge + Story/Poems switch + date */
 
 .detail-header{
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 1.8rem;
-  align-items: start;
-  margin-bottom: 3rem;
-}
-
-.detail-cover{
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border: 1px solid var(--hair);
-  border-radius: 6px;
-}
-
-.detail-info{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 0.9rem;
-  padding-top: 0.2rem;
+  margin-bottom: 3rem;
 }
 
 .detail-category-badge{
   display: inline-block;
-  width: fit-content;
   border: 1px solid var(--hair);
   border-radius: 6px;
   padding: 0.35rem 0.9rem;
@@ -96,6 +80,7 @@
 .detail-date{
   color: var(--ink-dim);
   font-size: 0.9rem;
+  margin-left: auto;
 }
 
 /* the poem/story text itself */
@@ -111,10 +96,7 @@
   .detail-main{
     padding: 5.5rem 1.3rem 4rem;
   }
-  .detail-header{
-    grid-template-columns: 1fr;
-  }
-  .detail-cover{
-    max-width: 220px;
+  .detail-date{
+    margin-left: 0;
   }
 }

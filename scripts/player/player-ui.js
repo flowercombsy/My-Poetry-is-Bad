@@ -25,7 +25,8 @@ function isCurrentlyPlaying(song, listName){
     && !audio.paused;
 }
 
-// builds one row — shared shape for both columns, just the button (+ / −) and the click behaviour differ
+// builds one row — shared shape for both columns, just the
+// button (+ / −) and the click behaviour differ
 function buildSongRow(song, list, index, listName, actionSymbol, onAction){
   const row = document.createElement("div");
   row.className = "track-row";

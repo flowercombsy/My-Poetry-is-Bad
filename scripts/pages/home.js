@@ -19,48 +19,53 @@ function buildLinkRow(entry, pageFile, numberLabel){
   return row;
 }
 
-// --- Story column (left) — no numbering, no pagination, just the list ---
-function renderStoryList(){
-  const container = document.getElementById("story-list");
-  if(stories.length === 0){
-    container.innerHTML = `<p class="empty-note">No stories yet.</p>`;
-    return;
-  }
-  stories.forEach((story) => {
-    container.appendChild(buildLinkRow(story, "story.html", null));
-  });
-}
-
-// --- Poems column (right) — numbered (bottom of list = #1, since that's the oldest), 5 at a time with a "show more", live search ---
-function setupPoemsList(){
-  const container = document.getElementById("poem-list");
-  const searchInput = document.getElementById("poem-search");
+function setupUnifiedList(){
+  const container = document.getElementById("entry-list");
+  const categorySelect = document.getElementById("category-select");
+  const searchInput = document.getElementById("entry-search");
   const pageSize = 5;
 
-  const numbered = poems.map((entry, i) => ({
+  const numberedPoems = poems.map((entry, i) => ({
     ...entry,
-    number: poems.length - i
+    number: poems.length - i,
+    type: "poem",
+    pageFile: "poem.html"
   }));
+
+  const taggedStories = stories.map((entry) => ({
+    ...entry,
+    number: null,
+    type: "story",
+    pageFile: "story.html"
+  }));
+
+  const allEntries = [...taggedStories, ...numberedPoems];
 
   let shown = pageSize;
   let query = "";
+  let category = "all";
+
+  function getFiltered(){
+    let list = category === "all" ? allEntries : allEntries.filter((e) => e.type === category);
+    if(query){
+      list = list.filter((e) => e.title.toLowerCase().includes(query));
+    }
+    return list;
+  }
 
   function render(){
     container.innerHTML = "";
-
-    const filtered = query
-      ? numbered.filter((entry) => entry.title.toLowerCase().includes(query))
-      : numbered;
+    const filtered = getFiltered();
 
     if(filtered.length === 0){
-      container.innerHTML = `<p class="empty-note">No poems match "${searchInput.value}".</p>`;
+      container.innerHTML = `<p class="empty-note">Nothing matches "${searchInput.value}".</p>`;
       return;
     }
 
     const visible = query ? filtered : filtered.slice(0, shown);
 
     visible.forEach((entry) => {
-      container.appendChild(buildLinkRow(entry, "poem.html", entry.number));
+      container.appendChild(buildLinkRow(entry, entry.pageFile, entry.number));
     });
 
     if(!query && shown < filtered.length){
@@ -79,6 +84,12 @@ function setupPoemsList(){
     }
   }
 
+  categorySelect.addEventListener("change", () => {
+    category = categorySelect.value;
+    shown = pageSize;
+    render();
+  });
+
   searchInput.addEventListener("input", () => {
     query = searchInput.value.trim().toLowerCase();
     render();
@@ -87,5 +98,4 @@ function setupPoemsList(){
   render();
 }
 
-renderStoryList();
-setupPoemsList();
+setupUnifiedList();
