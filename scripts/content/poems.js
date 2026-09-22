@@ -1,6 +1,56 @@
-// this is where I edit the poems — copy an entry below to add a new one
+// this is where I edit the poems — copy an entry below to add a new one u idiot
 
 const poems = [
+    {
+    id: "your-beautiful-pendant",
+    title: "Your beautiful pendant",
+    date: "2026",
+    preview: "Oh my dear,",
+    body: `Oh my dear,
+I saw your pendant,
+It was so clear!
+Relinquished of my resentment,
+
+I see the emptiness,
+Asking myself; will I ever find happiness?
+Nothing will end the pain,
+Everything in vain,
+
+Indecisive,
+My story is inconclusive,
+Yet, you,
+Control yours like a voodoo,
+
+How can I be as shiny?
+When my light can't even be brightly,
+Now at the contemporary,
+I can't even live carefree.`,
+  },
+    {
+    id: "unveiled-emotion",
+    title: "Unveiled emotions",
+    date: "2026",
+    preview: "Oh my emotions despondent,",
+    body: `Oh my emotions despondent,
+You played with my heart like an instrument,
+Tricked me in believing of courtship,
+I was never told it was just a quip,
+
+Healed my scars,
+And kept them in your memoirs,
+A vulnerable me,
+Stupid enough to fall to your trickery,
+
+Convinced of my defeat,
+Left severely sullied,
+Why did you contrive?
+When you knew the effect; on my life,
+
+It hurts,
+Kept me avert,
+Pulled me back for more,
+And left me offshore.`
+  },
   {
     id: "the-neverending-sorrow",
     title: "The neverending sorrow",
