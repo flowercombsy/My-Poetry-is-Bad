@@ -1,10 +1,10 @@
-// engine — you don't need to edit this file
-
+// pulls the poem/story id out of the page's URL (the ?id=... part)
 function getIdFromUrl(){
   const params = new URLSearchParams(window.location.search);
   return params.get("id");
 }
 
+// finds the matching poem or story and fills in the title, date, body and category on the page
 function renderDetailPage(entries, categoryLabel){
   const id = getIdFromUrl();
   const entry = entries.find((e) => e.id === id);
@@ -27,7 +27,7 @@ function renderDetailPage(entries, categoryLabel){
   bodyEl.textContent = entry.body.trim();
   categoryEl.textContent = categoryLabel;
 
-  // if this is a poem, show its number the same way the home page does
+  // poems get a "#N" number in front of the title, same as on the home page
   if(categoryLabel === "Poem"){
     const index = entries.findIndex((e) => e.id === id);
     const number = entries.length - index;

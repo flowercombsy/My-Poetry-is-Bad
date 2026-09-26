@@ -1,5 +1,4 @@
-// engine — you don't need to edit this file
-
+// turns one poem or story into a clickable row that links out to its own page
 function buildLinkRow(entry, pageFile, numberLabel){
   const row = document.createElement("a");
   row.className = "entry";
@@ -19,6 +18,7 @@ function buildLinkRow(entry, pageFile, numberLabel){
   return row;
 }
 
+// wires up the category dropdown and search box, and draws whichever view is currently active
 function setupUnifiedList(){
   const listPage = document.querySelector("main.list-page");
   const container = document.getElementById("entry-list");
@@ -45,12 +45,12 @@ function setupUnifiedList(){
   let query = "";
   let category = "all";
 
+  // true if a title matches whatever's currently typed into the search box
   function matchesQuery(entry){
     return !query || entry.title.toLowerCase().includes(query);
   }
 
-  // builds one column's worth of rows + its own "Show more", used both
-  // for a single filtered list and for each side of the "All" view
+  // fills one column with rows for the given entries, adding a "Show more" button if there's more left to load
   function fillColumn(listEl, entries, shownCount, emptyMessage, onShowMore){
     const filtered = entries.filter(matchesQuery);
 
@@ -76,11 +76,11 @@ function setupUnifiedList(){
     }
   }
 
+  // draws either the two-column Poem/Story layout or a single filtered list, depending on the category picked
   function render(){
     container.innerHTML = "";
 
     if(category === "all"){
-      // two side-by-side columns: Poem (left), Story (right)
       listPage.classList.add("wide");
       container.className = "entry-columns";
 
@@ -103,7 +103,6 @@ function setupUnifiedList(){
 
       container.append(poemList, divider, storyList);
     } else {
-      // a single, full-width filtered list
       listPage.classList.remove("wide");
       container.className = "entry-list";
 

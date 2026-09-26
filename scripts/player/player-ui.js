@@ -1,5 +1,3 @@
-// engine — you don't need to edit this file
-
 const playlistTab = document.getElementById("playlist-tab");
 const playlistPanel = document.getElementById("playlist-panel");
 const volumeSlider = document.getElementById("volume-slider");
@@ -18,6 +16,7 @@ playlistTab.addEventListener("click", () => {
   playlistTab.textContent = isOpen ? "✕ Close" : "♪ Playlist";
 });
 
+// true if this exact song, from this exact list, is the one currently playing
 function isCurrentlyPlaying(song, listName){
   return activeList[activeIndex]
     && activeList[activeIndex].id === song.id
@@ -25,8 +24,7 @@ function isCurrentlyPlaying(song, listName){
     && !audio.paused;
 }
 
-// builds one row — shared shape for both columns, just the
-// button (+ / −) and the click behaviour differ
+// builds one row — shared shape for both columns, just the button (+ / −) and its click behaviour differ
 function buildSongRow(song, list, index, listName, actionSymbol, onAction){
   const row = document.createElement("div");
   row.className = "track-row";
@@ -55,6 +53,7 @@ function buildSongRow(song, list, index, listName, actionSymbol, onAction){
   return row;
 }
 
+// redraws the full Songs list on the right
 function renderSongsColumn(){
   songsColumnEl.innerHTML = "";
   songLibrary.forEach((song, index) => {
@@ -66,6 +65,7 @@ function renderSongsColumn(){
   });
 }
 
+// redraws the user's custom Playlist on the left, with drag-to-reorder wired up on each row
 function renderPlaylistColumn(){
   playlistColumnEl.innerHTML = "";
   const playlistSongs = getPlaylistSongs();
@@ -125,6 +125,7 @@ playlistColumnEl.addEventListener("drop", (e) => {
   renderPlaylistColumn();
 });
 
+// re-renders both columns so the play/pause icons stay in sync with whatever's actually playing
 function refreshPlayingUI(){
   renderSongsColumn();
   renderPlaylistColumn();
