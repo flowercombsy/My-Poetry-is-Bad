@@ -24,7 +24,7 @@ Now with clear glasses I see,
 A new deliberation,
 New interpretation,
 Feelings of desperation,
-When I only saw your illumination.`
+When I only saw your illumination.`,
 },
     {
     id: "your-beautiful-pendant",
