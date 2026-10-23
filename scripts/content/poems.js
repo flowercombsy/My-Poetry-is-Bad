@@ -3,7 +3,7 @@
 const poems = [
     {
     id: "whim",
-    title: "Whim".
+    title: "Whim",
     date: "2026",
     preview: "My feelings,",
     body: `My feelings,
@@ -25,7 +25,7 @@ A new deliberation,
 New interpretation,
 Feelings of desperation,
 When I only saw your illumination.`,
-},
+    },
     {
     id: "your-beautiful-pendant",
     title: "Your beautiful pendant",
