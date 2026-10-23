@@ -2,6 +2,31 @@
 
 const poems = [
     {
+    id: "whim",
+    title: "Whim".
+    date: "2026",
+    preview: "My feelings,",
+    body: `My feelings,
+When you decided to be with me on a whim,
+Yet letting the candle grow dim,
+Putting it out with your hypnotic hymn,
+
+Now that I said goodbye,
+I'll never stay up for a reply,
+Only looking at my pet butterfly,
+And you just turned into a passerby,
+
+It's funny really,
+Peace feels like ecstasy,
+After you, it just felt like a memory,
+Now with clear glasses I see,
+
+A new deliberation,
+New interpretation,
+Feelings of desperation,
+When I only saw your illumination.`
+},
+    {
     id: "your-beautiful-pendant",
     title: "Your beautiful pendant",
     date: "2026",
