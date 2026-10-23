@@ -2,6 +2,31 @@
 
 const poems = [
     {
+    id: "wondering",
+    title: "Wondering",
+    date: "2026",
+    preview: "After many years of my life,",
+    body: `After many years of my life,
+Everything that I could muster up was a high five,
+In these moments,
+I think, I still want your companionship,
+
+Only then now,
+I reap what I sow,
+You told me, "I do",
+That was the last time I saw the real you,
+
+When I first saw your blouse
+A blinding sea of beautiful rose left me drowsed,
+The sun rises at dawn,
+I look next to me, you're truly gone,
+
+My darling, 50 years after you died,
+I visited your grave one last time,
+Oh, how much I miss your grace,
+That's all I could remember, not even your face.`,
+    },
+    {
     id: "whim",
     title: "Whim",
     date: "2026",
